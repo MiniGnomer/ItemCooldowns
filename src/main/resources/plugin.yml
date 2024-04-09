@@ -1,0 +1,7 @@
+name: ItemCooldowns
+version: '${project.version}'
+main: me.minignomer.itemcooldowns.ItemCooldowns
+api-version: '1.20'
+commands:
+  cooldown:
+    usage: /command get/set/default pearl/trident/shield <amount_in_seconds>
