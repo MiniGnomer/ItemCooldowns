@@ -10,11 +10,13 @@ import org.bukkit.entity.Player;
 
 public class CooldownCommand extends ConfigManager implements CommandExecutor {
 
-    // /cooldown get/set/default pearl/trident/shield <time_seconds>
+    // /cooldown get/set/default pearl/trident/shield/gapple/god_apple <time_seconds>
 
     final String pearlDefault = "1 seconds";
     final String tridentDefault = "0 seconds";
     final String shieldDefault = "5 seconds";
+    final String gappleDefault = "0 seconds";
+    final String godAppleDefault = "0 seconds";
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
@@ -25,14 +27,14 @@ public class CooldownCommand extends ConfigManager implements CommandExecutor {
         Player p = (Player) sender;
         if (args.length < 1) {
             p.sendMessage(ChatColor.RED +
-                    "Incorrect amount of arguments! Correct usage: /cooldown get/set pearl/trident/shield <time_seconds>");
+                    "Incorrect amount of arguments! Correct usage: /cooldown get/set pearl/trident/shield/gapple/god_apple <time_seconds>");
             return true;
         }
 
         if (args[0].equalsIgnoreCase("get")) {
             if (args.length != 2) {
                 p.sendMessage(ChatColor.RED +
-                        "Incorrect amount of arguments! Correct usage: /cooldown get pearl/trident/shield");
+                        "Incorrect amount of arguments! Correct usage: /cooldown get pearl/trident/shield/gapple/god_apple");
                 return true;
             }
 
@@ -41,7 +43,7 @@ public class CooldownCommand extends ConfigManager implements CommandExecutor {
                 p.sendMessage(ChatColor.GREEN + "The cooldown for " + args[1].toLowerCase() + " is " + getCooldown(cooldownType) + " seconds!");
             } catch (IllegalArgumentException exception) {
                 p.sendMessage(ChatColor.RED +
-                        "Couldn't find " + args[1].toLowerCase() + "! Correct usage: /cooldown get pearl/trident/shield");
+                        "Couldn't find " + args[1].toLowerCase() + "! Correct usage: /cooldown get pearl/trident/shield/gapple/god_apple");
             }
             return true;
         }
@@ -49,7 +51,7 @@ public class CooldownCommand extends ConfigManager implements CommandExecutor {
         if (args[0].equalsIgnoreCase("set")) {
             if (args.length != 3) {
                 p.sendMessage(ChatColor.RED +
-                        "Incorrect amount of arguments! Correct usage: /cooldown set pearl/trident/shield <time_seconds>");
+                        "Incorrect amount of arguments! Correct usage: /cooldown set pearl/trident/shield/gapple/god_apple <time_seconds>");
                 return true;
             }
 
@@ -58,7 +60,7 @@ public class CooldownCommand extends ConfigManager implements CommandExecutor {
                 cooldownType = CooldownType.valueOf(args[1].toUpperCase());
             } catch (IllegalArgumentException exception) {
                 p.sendMessage(ChatColor.RED +
-                        "Couldn't find " + args[1].toLowerCase() + "! Correct usage: /cooldown set pearl/trident/shield <time_seconds>");
+                        "Couldn't find " + args[1].toLowerCase() + "! Correct usage: /cooldown set pearl/trident/shield/gapple/god_apple <time_seconds>");
                 return true;
             }
 
@@ -83,7 +85,7 @@ public class CooldownCommand extends ConfigManager implements CommandExecutor {
         if (args[0].equalsIgnoreCase("default")) {
             if (args.length != 2) {
                 p.sendMessage(ChatColor.RED +
-                        "Incorrect amount of arguments! Correct usage: /cooldown default pearl/trident/shield");
+                        "Incorrect amount of arguments! Correct usage: /cooldown default pearl/trident/shield/gapple/god_apple");
                 return true;
             }
 
@@ -92,7 +94,7 @@ public class CooldownCommand extends ConfigManager implements CommandExecutor {
                 cooldownType = CooldownType.valueOf(args[1].toUpperCase());
             } catch (IllegalArgumentException exception) {
                 p.sendMessage(ChatColor.RED +
-                        "Couldn't find " + args[1].toLowerCase() + "! Correct usage: /cooldown default pearl/trident/shield");
+                        "Couldn't find " + args[1].toLowerCase() + "! Correct usage: /cooldown default pearl/trident/shield/gapple/god_apple");
                 return true;
             }
             switch (cooldownType) {
@@ -104,6 +106,12 @@ public class CooldownCommand extends ConfigManager implements CommandExecutor {
                     break;
                 case SHIELD:
                     p.sendMessage(ChatColor.GREEN + "The default cooldown for " + args[1].toLowerCase() + " is " + shieldDefault + "!");
+                    break;
+                case GAPPLE:
+                    p.sendMessage(ChatColor.GREEN + "The default cooldown for " + args[1].toLowerCase() + " is " + gappleDefault + "!");
+                    break;
+                case GOD_APPLE:
+                    p.sendMessage(ChatColor.GREEN + "The default cooldown for " + args[1].toLowerCase() + " is " + godAppleDefault + "!");
                     break;
             }
 

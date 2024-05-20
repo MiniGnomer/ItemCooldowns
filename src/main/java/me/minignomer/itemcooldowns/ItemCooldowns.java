@@ -2,6 +2,7 @@ package me.minignomer.itemcooldowns;
 
 import me.minignomer.itemcooldowns.commands.CooldownCommand;
 import me.minignomer.itemcooldowns.commands.CooldownTabCompleter;
+import me.minignomer.itemcooldowns.listeners.FoodListener;
 import me.minignomer.itemcooldowns.listeners.PearlListener;
 import me.minignomer.itemcooldowns.listeners.ShieldListener;
 import me.minignomer.itemcooldowns.listeners.TridentListener;
@@ -21,5 +22,6 @@ public final class ItemCooldowns extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PearlListener(), this);
         getServer().getPluginManager().registerEvents(new TridentListener(), this);
         getServer().getPluginManager().registerEvents(new ShieldListener(), this);
+        getServer().getPluginManager().registerEvents(new FoodListener(), this);
     }
 }

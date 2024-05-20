@@ -3,5 +3,7 @@ package me.minignomer.itemcooldowns.config;
 public enum CooldownType {
     PEARL,
     TRIDENT,
-    SHIELD
+    SHIELD,
+    GAPPLE,
+    GOD_APPLE
 }

@@ -26,6 +26,8 @@ public class CooldownTabCompleter implements TabCompleter {
             options.add("pearl");
             options.add("trident");
             options.add("shield");
+            options.add("gapple");
+            options.add("god_apple");
             return options;
         }
 

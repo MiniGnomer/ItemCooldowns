@@ -4,4 +4,4 @@ main: me.minignomer.itemcooldowns.ItemCooldowns
 api-version: '1.20'
 commands:
   cooldown:
-    usage: /command get/set/default pearl/trident/shield <amount_in_seconds>
+    usage: /command get/set/default pearl/trident/shield/gapple/god_apple <amount_in_seconds>
